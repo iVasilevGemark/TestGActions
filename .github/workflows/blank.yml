@@ -13,6 +13,5 @@ jobs:
     steps:
       - name: "checkout"
         uses: actions/checkout@v2
-
       - name: Run Ktlint
-      - run: brew install ktlint
+        run: brew install ktlint
