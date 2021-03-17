@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Ktlint
         run: |
-          brew install ktlint
+          curl -s https://github.com/pinterest/ktlint/releases/download/0.41.0/ktlint! | bash
           ktlint --android "**/src/**/*.kt" -F --reporter=plain --reporter=checkstyle,output=ktlint-report-in-checkstyle-format.xml
