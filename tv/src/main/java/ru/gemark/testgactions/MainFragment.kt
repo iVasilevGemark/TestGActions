@@ -129,10 +129,11 @@ class MainFragment : BrowseFragment() {
 
     private inner class ItemViewClickedListener : OnItemViewClickedListener {
         override fun onItemClicked(
-                itemViewHolder: Presenter.ViewHolder,
-                item: Any,
-                rowViewHolder: RowPresenter.ViewHolder,
-                row: Row) {
+            itemViewHolder: Presenter.ViewHolder,
+            item: Any,
+            rowViewHolder: RowPresenter.ViewHolder,
+            row: Row
+        ) {
 
             if (item is Movie) {
                 Log.d(TAG, "Item: " + item.toString())
