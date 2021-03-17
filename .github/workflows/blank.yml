@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: brew install ktlint
       - name: run ktlint
         run: |
           ktlint --reporter=checkstyle,output=build/ktlint-report-in-checkstyle-format.xml
