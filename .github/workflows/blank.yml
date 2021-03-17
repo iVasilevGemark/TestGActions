@@ -14,5 +14,5 @@ jobs:
       - name: "checkout"
         uses: actions/checkout@v2
 
-      - name: "ktlint"
-        uses: "vroy/gha-kotlin-linter@v1"
+      - name: Run Ktlint
+      - run: brew install ktlint

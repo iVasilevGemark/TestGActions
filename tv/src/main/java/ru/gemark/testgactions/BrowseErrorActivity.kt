@@ -29,24 +29,27 @@ class BrowseErrorActivity : Activity() {
     private fun testError() {
         mErrorFragment = ErrorFragment()
         fragmentManager
-                .beginTransaction()
-                .add(R.id.main_browse_fragment, mErrorFragment)
-                .commit()
+            .beginTransaction()
+            .add(R.id.main_browse_fragment, mErrorFragment)
+            .commit()
 
         mSpinnerFragment = SpinnerFragment()
         fragmentManager
-                .beginTransaction()
-                .add(R.id.main_browse_fragment, mSpinnerFragment)
-                .commit()
+            .beginTransaction()
+            .add(R.id.main_browse_fragment, mSpinnerFragment)
+            .commit()
 
         val handler = Handler()
-        handler.postDelayed({
-            fragmentManager
+        handler.postDelayed(
+            {
+                fragmentManager
                     .beginTransaction()
                     .remove(mSpinnerFragment)
                     .commit()
-            mErrorFragment.setErrorContent()
-        }, TIMER_DELAY)
+                mErrorFragment.setErrorContent()
+            },
+            TIMER_DELAY
+        )
     }
 
     class SpinnerFragment : Fragment() {
@@ -58,7 +61,8 @@ class BrowseErrorActivity : Activity() {
         ): View? {
             val progressBar = ProgressBar(container?.context)
             if (container is FrameLayout) {
-                val layoutParams = FrameLayout.LayoutParams(SPINNER_WIDTH, SPINNER_HEIGHT, Gravity.CENTER)
+                val layoutParams =
+                    FrameLayout.LayoutParams(SPINNER_WIDTH, SPINNER_HEIGHT, Gravity.CENTER)
                 progressBar.layoutParams = layoutParams
             }
             return progressBar
