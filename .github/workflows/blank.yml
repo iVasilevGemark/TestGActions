@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Ktlint
         run: |
-          curl -sL https://github.com/pinterest/ktlint/releases/download/0.26.0/ktlint -o /usr/local/bin/ktlint && chmox +x /usr/local/bin/ktlint
+          sudo curl -sL https://github.com/pinterest/ktlint/releases/download/0.26.0/ktlint -o /usr/local/bin/ktlint && chmox +x /usr/local/bin/ktlint
