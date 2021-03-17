@@ -16,3 +16,4 @@ jobs:
       - name: Run Ktlint
         run: |
           sudo curl -sL https://github.com/pinterest/ktlint/releases/download/0.26.0/ktlint -o /usr/local/bin/ktlint
+          ktlint --android "**/src/**/*.kt" -F --reporter=plain --reporter=checkstyle,output=ktlint-report-in-checkstyle-format.xml
