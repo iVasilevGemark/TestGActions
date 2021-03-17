@@ -12,3 +12,6 @@ jobs:
 
     steps:
       - uses: ScaCap/action-ktlint@master
+        with:
+          github_token: ${{ secrets.KTLINT_REVIEWER }}
+          reporter: Ktlint reviewer
