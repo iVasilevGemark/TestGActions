@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ScaCap/action-ktlint@master
-        with:
-          github_token: ${{ secrets.KTLINT_REVIEWER }}
-          reporter: Ktlint reviewer
+      - name: run ktlint
+          run: |
+            ktlint --reporter=checkstyle,output=build/ktlint-report-in-checkstyle-format.xml
+      - uses: yutailang0119/action-ktlint@v1.0.0
+      - with:
+          xml_path: build/ktlint-report-in-checkstyle-format.xml
