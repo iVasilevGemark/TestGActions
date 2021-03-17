@@ -158,8 +158,12 @@ class MainFragment : BrowseFragment() {
     }
 
     private inner class ItemViewSelectedListener : OnItemViewSelectedListener {
-        override fun onItemSelected(itemViewHolder: Presenter.ViewHolder?, item: Any?,
-                                    rowViewHolder: RowPresenter.ViewHolder, row: Row) {
+        override fun onItemSelected(
+            itemViewHolder: Presenter.ViewHolder?,
+            item: Any?,
+            rowViewHolder: RowPresenter.ViewHolder,
+            row: Row
+        ) {
             if (item is Movie) {
                 mBackgroundUri = item.backgroundImageUrl
                 startBackgroundTimer()
