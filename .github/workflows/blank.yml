@@ -14,4 +14,6 @@ jobs:
       - name: "checkout"
         uses: actions/checkout@v2
       - name: Run Ktlint
-        run: brew install ktlint
+        run: |
+          brew install ktlint
+          ktlint --android "**/src/**/*.kt" -F --reporter=plain --reporter=checkstyle,output=ktlint-report-in-checkstyle-format.xml
