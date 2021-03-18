@@ -8,14 +8,12 @@ on:
 
 jobs:
   ktlint:
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'
+    runs-on: ubuntu-latest
 
     steps:
       - name: "checkout"
         uses: actions/checkout@v2
       - name: Run Ktlint
-        run: |
-          curl -L https://github.com/pinterest/ktlint/releases/download/0.41.0/ktlint-`uname -s`-`uname -m` > /usr/local/bin/ktlint
-          chmod +x /usr/local/bin/ktlint
+        runs:
+          using: 'docker'
+          image: 'Dockerfile'
