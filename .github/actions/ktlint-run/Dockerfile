@@ -11,6 +11,6 @@ RUN curl -sSL https://api.github.com/repos/pinterest/ktlint/releases/latest \
     && chmod a+x ktlint \
     && mv ktlint /usr/local/bin/
 
-RUN chmod a+x ktlint --relative
+RUN chmod +x /usr/local/bin/ktlint
 
 ENTRYPOINT ["/run-script.sh"]
