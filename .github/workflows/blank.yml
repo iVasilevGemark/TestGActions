@@ -8,7 +8,9 @@ on:
 
 jobs:
   ktlint:
-    runs-on: ubuntu-latest
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'
 
     steps:
       - name: "checkout"
