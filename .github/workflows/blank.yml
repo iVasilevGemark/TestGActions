@@ -14,4 +14,4 @@ jobs:
       - name: "checkout"
         uses: actions/checkout@v2
       - name: Run Ktlint
-        uses: actions/ktlint-run@v1
+        uses: ./.github/actions/ktlint-run
