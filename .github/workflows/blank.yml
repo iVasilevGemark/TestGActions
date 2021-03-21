@@ -16,6 +16,4 @@ jobs:
       - name: Run Android lint
         run: ./gradlew lintDebug
       - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: android_lint_artifact
+        uses: actions/upload-artifact@v2
