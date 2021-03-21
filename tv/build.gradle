@@ -30,7 +30,7 @@ android {
         xmlOutput file("$rootDir/build/lint/lint-report.xml")
         warningsAsErrors true
         checkDependencies true
-        abortOnError false
+        abortOnError true
     }
 }
 
