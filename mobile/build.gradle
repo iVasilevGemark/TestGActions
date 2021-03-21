@@ -30,6 +30,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    lintOptions {
+        enable 'MinSdkTooLow', 'MissingRegistered', 'Registered', 'TypographyQuotes'
+        disable 'LabelFor', 'ContentDescription', 'RtlEnabled', 'DuplicateIncludedIds', 'StringFormatMatches', 'Overdraw'
+        htmlOutput file("$rootDir/build/lint/lint-report-mobile.html")
+        xmlOutput file("$rootDir/build/lint/lint-report-mobile.xml")
+        warningsAsErrors true
+        checkDependencies true
+        abortOnError true
+    }
 }
 
 dependencies {
@@ -39,7 +49,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

@@ -120,7 +120,7 @@ class MainFragment : BrowseFragment() {
     private fun setupEventListeners() {
         setOnSearchClickedListener {
             Toast.makeText(activity, "Implement your own in-app search", Toast.LENGTH_LONG)
-                    .show()
+                .show()
         }
 
         onItemViewClickedListener = ItemViewClickedListener()
@@ -129,10 +129,11 @@ class MainFragment : BrowseFragment() {
 
     private inner class ItemViewClickedListener : OnItemViewClickedListener {
         override fun onItemClicked(
-                itemViewHolder: Presenter.ViewHolder,
-                item: Any,
-                rowViewHolder: RowPresenter.ViewHolder,
-                row: Row) {
+            itemViewHolder: Presenter.ViewHolder,
+            item: Any,
+            rowViewHolder: RowPresenter.ViewHolder,
+            row: Row
+        ) {
 
             if (item is Movie) {
                 Log.d(TAG, "Item: " + item.toString())
@@ -140,10 +141,11 @@ class MainFragment : BrowseFragment() {
                 intent.putExtra(DetailsActivity.MOVIE, item)
 
                 val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        activity,
-                        (itemViewHolder.view as ImageCardView).mainImageView,
-                        DetailsActivity.SHARED_ELEMENT_NAME)
-                        .toBundle()
+                    activity,
+                    (itemViewHolder.view as ImageCardView).mainImageView,
+                    DetailsActivity.SHARED_ELEMENT_NAME
+                )
+                    .toBundle()
                 activity.startActivity(intent, bundle)
             } else if (item is String) {
                 if (item.contains(getString(R.string.error_fragment))) {
@@ -157,8 +159,12 @@ class MainFragment : BrowseFragment() {
     }
 
     private inner class ItemViewSelectedListener : OnItemViewSelectedListener {
-        override fun onItemSelected(itemViewHolder: Presenter.ViewHolder?, item: Any?,
-                                    rowViewHolder: RowPresenter.ViewHolder, row: Row) {
+        override fun onItemSelected(
+            itemViewHolder: Presenter.ViewHolder?,
+            item: Any?,
+            rowViewHolder: RowPresenter.ViewHolder,
+            row: Row
+        ) {
             if (item is Movie) {
                 mBackgroundUri = item.backgroundImageUrl
                 startBackgroundTimer()
@@ -170,16 +176,18 @@ class MainFragment : BrowseFragment() {
         val width = mMetrics.widthPixels
         val height = mMetrics.heightPixels
         Glide.with(activity)
-                .load(uri)
-                .centerCrop()
-                .error(mDefaultBackground)
-                .into<SimpleTarget<GlideDrawable>>(
-                        object : SimpleTarget<GlideDrawable>(width, height) {
-                            override fun onResourceReady(resource: GlideDrawable,
-                                                         glideAnimation: GlideAnimation<in GlideDrawable>) {
-                                mBackgroundManager.drawable = resource
-                            }
-                        })
+            .load(uri)
+            .centerCrop()
+            .error(mDefaultBackground)
+            .into<SimpleTarget<GlideDrawable>>(
+                object : SimpleTarget<GlideDrawable>(width, height) {
+                    override fun onResourceReady(
+                        resource: GlideDrawable,
+                        glideAnimation: GlideAnimation<in GlideDrawable>
+                    ) {
+                        mBackgroundManager.drawable = resource
+                    }
+                })
         mBackgroundTimer?.cancel()
     }
 
