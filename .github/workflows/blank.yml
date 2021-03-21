@@ -7,11 +7,11 @@ on:
     branches: [ develop ]
 
 jobs:
-  android lint:
+  ktlint:
     runs-on: ubuntu-latest
 
     steps:
       - name: "checkout"
         uses: actions/checkout@v2
-      - name: Run Android lint
-        uses: ./gradlew lintDebug
+      - name: Run Ktlint
+        uses: ./.github/actions/ktlint-run
