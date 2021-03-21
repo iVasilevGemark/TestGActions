@@ -20,4 +20,6 @@ jobs:
         if: failure()
         with:
           name: lint-report
-          path: build/lint/lint-report.html
+          path: |
+            build/lint/lint-report-mobile.html
+            build/lint/lint-report-tv.html

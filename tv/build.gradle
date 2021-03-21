@@ -26,8 +26,8 @@ android {
     lintOptions {
         enable 'MinSdkTooLow', 'MissingRegistered', 'Registered', 'TypographyQuotes'
         disable 'LabelFor', 'ContentDescription', 'RtlEnabled', 'DuplicateIncludedIds', 'StringFormatMatches', 'Overdraw'
-        htmlOutput file("$rootDir/build/lint/lint-report.html")
-        xmlOutput file("$rootDir/build/lint/lint-report.xml")
+        htmlOutput file("$rootDir/build/lint/lint-report-tv.html")
+        xmlOutput file("$rootDir/build/lint/lint-report-tv.xml")
         warningsAsErrors true
         checkDependencies true
         abortOnError true
