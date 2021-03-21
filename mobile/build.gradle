@@ -30,6 +30,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    lintOptions {
+        enable 'MinSdkTooLow', 'MissingRegistered', 'Registered', 'TypographyQuotes'
+        disable 'LabelFor', 'ContentDescription', 'RtlEnabled', 'DuplicateIncludedIds', 'StringFormatMatches', 'Overdraw'
+        htmlOutput file("$rootDir/build/lint/lint-report.html")
+        xmlOutput file("$rootDir/build/lint/lint-report.xml")
+        warningsAsErrors true
+        checkDependencies true
+        abortOnError true
+    }
 }
 
 dependencies {
