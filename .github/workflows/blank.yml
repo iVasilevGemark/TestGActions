@@ -14,4 +14,4 @@ jobs:
       - name: "checkout"
         uses: actions/checkout@v2
       - name: Run Android lint
-        uses: ./gradlew lintDebug
+        run: ./gradlew lintDebug
