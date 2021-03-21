@@ -17,3 +17,6 @@ jobs:
         run: ./gradlew lintDebug
       - name: Download a single artifact
         uses: actions/upload-artifact@v2
+        with:
+          name: android_lint
+          path: android_lint.html
