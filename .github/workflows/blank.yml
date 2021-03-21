@@ -19,7 +19,6 @@ jobs:
         uses: actions/upload-artifact@v2
         if: failure()
         with:
-          name: lint-report
           path: |
             build/lint/lint-report-mobile.html
             build/lint/lint-report-tv.html
