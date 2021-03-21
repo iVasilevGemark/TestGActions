@@ -14,7 +14,9 @@ jobs:
       - name: "checkout"
         uses: actions/checkout@v2
       - name: Run Android lint
-        run: ./gradlew lintDebug
+        run: |
+          ./gradlew :mobile:lintDebug
+          ./gradlew :tv:lintDebug
       - name: Upload lint report
         uses: actions/upload-artifact@v2
         if: failure()
