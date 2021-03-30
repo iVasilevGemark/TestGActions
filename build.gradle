@@ -45,14 +45,14 @@ task generationProductXMobileVersion {
                 commandLine 'cmd', '/c', gitAdd
                 commandLine 'cmd', '/c', gitCommit
             } else {
-                commandLine 'bash', '-c', gitConfigName
                 println 'gitConfigName: ' + gitConfigName
-                commandLine 'bash', '-c', gitConfigEmail
+                commandLine 'bash', '-c', gitConfigName
                 println 'gitConfigEmail: ' + gitConfigEmail
-                commandLine 'bash', '-c', gitAdd
+                commandLine 'bash', '-c', gitConfigEmail
                 println 'gitAdd: ' + gitAdd
-                commandLine 'bash', '-c', gitCommit
+                commandLine 'bash', '-c', gitAdd
                 println 'gitCommit: ' + gitCommit
+                commandLine 'bash', '-c', gitCommit
             }
         }
     }
