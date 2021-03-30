@@ -1,3 +1,5 @@
+import static GradleUtilsKt.generationMobileVersionAndSave
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.4.31"
@@ -23,4 +25,35 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task generationProductXMobileVersion {
+    doLast {
+        def version = generationMobileVersionAndSave()
+
+        exec {
+            standardOutput = new ByteArrayOutputStream()
+
+            def gitConfigEmail = 'git config user.email \"github_ci@productx.com\"'
+            def gitConfigName = 'git config user.name \"Github CI\"'
+            def gitAdd = 'git add buildSrc/src/main/kotlin/constants/Android.kt'
+            def gitCommit = 'git commit -am \"CI build new version ' + version + '\"'
+
+            if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+                commandLine 'cmd', '/c', gitConfigName
+                commandLine 'cmd', '/c', gitConfigEmail
+                commandLine 'cmd', '/c', gitAdd
+                commandLine 'cmd', '/c', gitCommit
+            } else {
+                commandLine 'bash', '-c', gitConfigName
+                println 'gitConfigName: ' + gitConfigName
+                commandLine 'bash', '-c', gitConfigEmail
+                println 'gitConfigEmail: ' + gitConfigEmail
+                commandLine 'bash', '-c', gitAdd
+                println 'gitAdd: ' + gitAdd
+                commandLine 'bash', '-c', gitCommit
+                println 'gitCommit: ' + gitCommit
+            }
+        }
+    }
 }
