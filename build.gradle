@@ -45,10 +45,10 @@ task generationProductXMobileVersion {
                 commandLine 'cmd', '/c', gitAdd
                 commandLine 'cmd', '/c', gitCommit
             } else {
-                println 'gitConfigName: ' + gitConfigName
-                commandLine 'bash', '-c', gitConfigName
                 println 'gitConfigEmail: ' + gitConfigEmail
                 commandLine 'bash', '-c', gitConfigEmail
+                println 'gitConfigName: ' + gitConfigName
+                commandLine 'bash', '-c', gitConfigName
                 println 'gitAdd: ' + gitAdd
                 commandLine 'bash', '-c', gitAdd
                 println 'gitCommit: ' + gitCommit
