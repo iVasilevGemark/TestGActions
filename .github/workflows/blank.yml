@@ -19,7 +19,8 @@ jobs:
           KEY_PASSWORD_KEYSTORE: ${{ secrets.KEY_PASSWORD_KEYSTORE }}
         run: |
           echo "path = $GITHUB_WORKSPACE"
-          echo "storeFile = $STORE_FILE_KEYSTORE"
-          echo "storePassword = $STORE_PASSWORD_KEYSTORE"
-          echo "keyAlias = $KEY_ALIAS_KEYSTORE"
-          echo "keyPassword = $KEY_PASSWORD_KEYSTORE"
+          echo "storeFile = $STORE_FILE_KEYSTORE" > release_keystore.properties
+          echo "storePassword = $STORE_PASSWORD_KEYSTORE" >> release_keystore.properties
+          echo "keyAlias = $KEY_ALIAS_KEYSTORE" >> release_keystore.properties
+          echo "keyPassword = $KEY_PASSWORD_KEYSTORE" >> release_keystore.properties
+          echo "release_keystore = $(release_keystore.properties)"
