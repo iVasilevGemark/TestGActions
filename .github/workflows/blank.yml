@@ -18,7 +18,7 @@ jobs:
           KEY_ALIAS_KEYSTORE: ${{ secrets.KEY_ALIAS_KEYSTORE }}
           KEY_PASSWORD_KEYSTORE: ${{ secrets.KEY_PASSWORD_KEYSTORE }}
         run: |
-          sudo sh keystore.sh
+          sudo /home/runner/work/TestGActions/.github/workflows/keystore.sh
       - name: Upload release_keystore
         uses: actions/upload-artifact@v2
         with:
