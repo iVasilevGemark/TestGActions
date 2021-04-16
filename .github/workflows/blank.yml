@@ -17,7 +17,7 @@ jobs:
           STORE_PASSWORD_KEYSTORE: ${{ secrets.$STORE_PASSWORD_KEYSTORE }}
           KEY_ALIAS_KEYSTORE: ${{ secrets.$KEY_ALIAS_KEYSTORE }}
           KEY_PASSWORD_KEYSTORE: ${{ secrets.$KEY_PASSWORD_KEYSTORE }}
-      - run: |
+        run: |
           echo "path = $GITHUB_WORKSPACE"
           echo "storeFile = $STORE_FILE_KEYSTORE"
           echo "storePassword = $STORE_PASSWORD_KEYSTORE"
