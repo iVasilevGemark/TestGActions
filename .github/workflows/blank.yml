@@ -14,9 +14,9 @@ jobs:
       - shell: cmd
         env:
           STORE_FILE_KEYSTORE: ${{ secrets.STORE_FILE_KEYSTORE }}
-          STORE_PASSWORD_KEYSTORE: ${{ secrets.$STORE_PASSWORD_KEYSTORE }}
-          KEY_ALIAS_KEYSTORE: ${{ secrets.$KEY_ALIAS_KEYSTORE }}
-          KEY_PASSWORD_KEYSTORE: ${{ secrets.$KEY_PASSWORD_KEYSTORE }}
+          STORE_PASSWORD_KEYSTORE: ${{ secrets.STORE_PASSWORD_KEYSTORE }}
+          KEY_ALIAS_KEYSTORE: ${{ secrets.KEY_ALIAS_KEYSTORE }}
+          KEY_PASSWORD_KEYSTORE: ${{ secrets.KEY_PASSWORD_KEYSTORE }}
         run: |
           echo "path = $GITHUB_WORKSPACE"
           echo "storeFile = $STORE_FILE_KEYSTORE"
