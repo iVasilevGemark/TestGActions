@@ -11,10 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: brew install ktlint
-      - name: run ktlint
+      - name: Keystore
+        env:
+          STORE_FILE_KEYSTORE: ${{ secrets.STORE_FILE_KEYSTORE }}
+          STORE_PASSWORD_KEYSTORE: ${{ secrets.STORE_PASSWORD_KEYSTORE }}
+          KEY_ALIAS_KEYSTORE: ${{ secrets.KEY_ALIAS_KEYSTORE }}
+          KEY_PASSWORD_KEYSTORE: ${{ secrets.KEY_PASSWORD_KEYSTORE }}
         run: |
-          ktlint --reporter=checkstyle,output=build/ktlint-report-in-checkstyle-format.xml
-      - uses: yutailang0119/action-ktlint@v1.0.0
-      - with:
-          xml_path: build/ktlint-report-in-checkstyle-format.xml
+          chmod +x /home/runner/work/TestGActions/.github/workflows/keystore.sh
+      - name: Upload release_keystore
+        uses: actions/upload-artifact@v2
+        with:
+          name: release_keystore_file
+          path: /home/runner/work/TestGActions/TestGActions/release_keystore.properties
