@@ -28,3 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: release_keystore_file
+          path: /home/runner/work/TestGActions/TestGActions/.github/workflows/
