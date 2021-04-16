@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - shell: cmd
+      - name: Keystore
         env:
           STORE_FILE_KEYSTORE: ${{ secrets.STORE_FILE_KEYSTORE }}
           STORE_PASSWORD_KEYSTORE: ${{ secrets.STORE_PASSWORD_KEYSTORE }}
